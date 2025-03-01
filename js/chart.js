@@ -265,7 +265,7 @@ function getChartDataInfo(type) {
                 publicName : '일조량',
                 data : parseData.datasets[3].data,
                 valueSuffix : parseData.datasets[3].unit,
-                tickInterval : 100
+                tickInterval : 200
             };
             break;
             

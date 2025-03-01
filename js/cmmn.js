@@ -17,11 +17,11 @@ $(document).ready(() => {
         user = localStorageUser;
         localStorage.setItem('user', user);
     } else {
-        alert('접근이 잘못되었습니다.');
+        location.href = 'error.html';
         return false;
     }
 
-    const userData = getUserData(user);
+    const userData = getUserDummyData(user);
 
     // 작물 기본 정보 세팅
     const userName = userData.userName;
@@ -48,7 +48,7 @@ $(document).ready(() => {
     getSensorData(defaultPlant);
 });
 
-function getUserData(user) {
+function getUserDummyData(user) {
     let userData = {};
 
     switch(user) {
