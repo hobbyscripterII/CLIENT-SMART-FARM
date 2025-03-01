@@ -39,10 +39,13 @@ $(document).ready(() => {
     plantList.forEach((item) => {
         const plantName = item;
         const navbarWrap = $('.navbar-wrap');
-        const el = `<li class="sub-plant" onclick="${plantName}">${plantName}</li>`;
+        const el = `<li class="sub-plant" onclick="getSensorData('${plantName}')">${plantName}</li>`;
 
         navbarWrap.append(el);
     });
+
+    const defaultPlant = plantList[0];
+    getSensorData(defaultPlant);
 });
 
 function getUserData(user) {
