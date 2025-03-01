@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Freesentation-9Black';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+section {
+    flex: 1;
+    min-width: 0;
+}
+
+.sensor-data {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.sensor-data div {
+    border: 1px solid #dbdbdb;
+    min-width: 180px;
+    margin: 25px;
+    cursor: pointer;
+    padding: 25px;
+    border-radius: 5%;
+    transition: transform 0.15s ease-out, background-color 0.15s ease-out, opacity 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+/* 센서 데이터 버튼 클릭 효과 */
+.sensor-data div:active {
+    transform: scale(0.92);
+    background-color: #e8e8e8;
+    opacity: 0.95;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-data div:hover {
+    transform: scale(1.02);
+    background-color: #f8f8f8;
+}
+
+
+.sensor-data span {
+    font-family: 'Freesentation-9Black';
+}
+
+.sensor-data p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.sensor-data span {
+    font-size: 22px;
+    color: gray;
+}
+
+.temp, .humi, .open, .light {
+    padding-bottom: 10px;
+}
+
+.pb {
+    padding-bottom: 10px;
+}

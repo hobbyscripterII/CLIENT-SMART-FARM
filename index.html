@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 공통 레이아웃 -->
+<head></head>
+<header></header>
+<nav></nav>
+
+<!-- -->
+<body>
+    <section>
+        <!-- 센서 측정 목록 -->
+        <div class="sensor-data">
+            <div onclick="getChartData('temp')">
+                <!-- 온도 TEMPERATURE -->
+                <p class="pb">온도</p>
+                <span class="temp">24.5</span><span> °C</span>
+            </div>
+            
+            <div onclick="getChartData('humi')">
+                <!-- 습도 HUMIDITY -->
+                <p class="pb">습도</p>
+                <span class="humi">65</span><span> %</span>
+            </div>
+            
+            <div onclick="getChartData('open')">
+                <!-- 개폐량 OPENING/CLOSING AMOUNT -->
+                <p class="pb">개폐량</p>
+                <span class="open">80</span><span> %</span>
+            </div>
+            
+            <div onclick="getChartData('light')">
+                <!-- 일조량 SOLAR RADIATION -->
+                <p class="pb">일조량</p>
+                <span class="light">1,200</span><span> LX</span>
+            </div>
+        </div>
+        <!-- 센서 측정 목록 -->
+
+        <!-- 차트 -->
+        <figure class="sensor-chart">
+            <div id="container">
+                <div class="cell" id="dashboard-cell-0"></div>
+                <!--
+                <div class="cell" id="dashboard-cell-1"></div>
+                <div class="cell" id="dashboard-cell-2"></div>
+                <div class="cell" id="dashboard-cell-3"></div>
+                -->
+            </div>
+            <!--
+            <p class="highcharts-description">
+                This demo shows how related charts can be synchronized within the dashboard. Hover over one chart to see the
+                effect in the other charts as well.
+            </p>
+            -->
+        </figure>
+
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <!--
+            <p class="highcharts-description">
+                A basic column chart comparing estimated corn and wheat production
+                in some countries.
+                
+                The chart is making use of the axis crosshair feature, to highlight
+                the hovered country.
+            </p>
+            -->
+        </figure>
+        <!-- 차트 -->
+    </section>
+</body>
+<!-- -->
+
+<!-- 공통 레이아웃 -->
+<footer></footer>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 공통 레이아웃 외 초기화 스크립트 -->
+<script src="/js/cmmn.js"></script>
+
+<!-- 차트 라이브러리 -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<!-- 차트 데이터 처리 -->
+<script src="/js/chart.js"></script>
+</html>
