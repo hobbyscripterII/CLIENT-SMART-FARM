@@ -61,3 +61,7 @@ section {
 .pb {
     padding-bottom: 10px;
 }
+
+.sub-plant {
+    cursor: pointer;
+}

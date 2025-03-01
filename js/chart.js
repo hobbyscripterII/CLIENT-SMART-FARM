@@ -41,6 +41,81 @@ const returnData = `
 
 const parseData = JSON.parse(returnData);
 
+function getSensorDataInfo(plant) {
+    let sensorData = {};
+
+    switch(plant) {
+        case '방울 토마토' :
+            sensorData = {
+                temp : '24.5',
+                humi : '65',
+                open : '10',
+                light : '30'
+            };
+            break;
+
+        case '고수' :
+            sensorData = {
+                temp : '27.5',
+                humi : '60',
+                open : '0',
+                light : '70'
+            };
+            break;
+
+        case '딸기' :
+            sensorData = {
+                temp : '10',
+                humi : '20',
+                open : '80',
+                light : '60'
+            };
+            break;
+
+        case '바질' :
+            sensorData = {
+                temp : '20',
+                humi : '10',
+                open : '50',
+                light : '10'
+            };
+            break;
+
+        default :
+            sensorData = {
+                temp : 0,
+                humi : 0,
+                open : 0,
+                light : 0
+            };
+            break;
+    }
+
+    return sensorData;
+}
+
+function getSensorData(plant) {
+    const sensorDataEl = $('.sensor-data');
+    sensorDataEl.html('');
+
+    const sensorDataInfo = getSensorDataInfo(plant);
+    const sensorList = {
+        'temp' : {name: '온도', unit: '°C'},
+        'humi' : {name: '습도', unit: '%'},
+        'open' : {name: '개폐량', unit: '%'},
+        'light': {name: '일조량', unit: 'LX'}
+    };
+
+    Object.entries(sensorList).forEach(([eng, { name, unit }]) => {
+        const el = `<div onclick="getChartData('${eng}')">
+                        <p class="pb">${name}</p>
+                        <span class="${eng}">${sensorDataInfo[eng]}</span><span> ${unit}</span>
+                    </div>`;
+
+        sensorDataEl.append(el);
+    });
+}
+
 function getChartData(type) {
     // 이전 차트 초기화
     const defaultHtml = '<div class="cell" id="dashboard-cell-0"></div>';
@@ -49,9 +124,7 @@ function getChartData(type) {
     const chartDataInfo = getChartDataInfo(type);
     const publicName = chartDataInfo.publicName;
     const valueSuffix = chartDataInfo.valueSuffix;
-    const data = chartDataInfo.data;
-
-    console.log('chartDataInfo = ', chartDataInfo);
+    const tickInterval = chartDataInfo.tickInterval;
 
     Highcharts.setOptions({
         chart: {
@@ -84,7 +157,8 @@ function getChartData(type) {
         yAxis: {
             title: {
                 text: null
-            }
+            },
+            tickInterval: tickInterval
         },
         marker: {
             enabled: false
@@ -164,6 +238,7 @@ function getChartDataInfo(type) {
                 publicName : '온도',
                 data : parseData.datasets[0].data,
                 valueSuffix : parseData.datasets[0].unit,
+                tickInterval : 2
             };
             break;
             
@@ -172,6 +247,7 @@ function getChartDataInfo(type) {
                 publicName : '습도',
                 data : parseData.datasets[1].data,
                 valueSuffix : parseData.datasets[1].unit,
+                tickInterval : 2
             };
             break;
             
@@ -180,6 +256,7 @@ function getChartDataInfo(type) {
                 publicName : '개폐량',
                 data : parseData.datasets[2].data,
                 valueSuffix : parseData.datasets[2].unit,
+                tickInterval : 5
             };
             break;
             
@@ -188,6 +265,7 @@ function getChartDataInfo(type) {
                 publicName : '일조량',
                 data : parseData.datasets[3].data,
                 valueSuffix : parseData.datasets[3].unit,
+                tickInterval : 100
             };
             break;
             
@@ -195,7 +273,8 @@ function getChartDataInfo(type) {
             chartInfoClass = {
                 publicName : null,
                 valueSuffix : null,
-                dataSet : null
+                dataSet : null,
+                tickInterval : 0
             };
             break;
     }

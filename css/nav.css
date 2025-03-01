@@ -46,6 +46,8 @@ nav ul li {
 .profile-photo {
     width: 100px;
     height: 100px;
+    max-width: 100px;
+    max-height: 100px;
     object-fit: cover;
     border: 1px solid #dbdbdb;
     border-radius: 50%;

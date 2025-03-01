@@ -1,90 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- 공통 레이아웃 -->
-<head></head>
-<header></header>
-<nav></nav>
+    <meta charset="UTF-8">
+    <!-- 공통 레이아웃 -->
+    <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART FARM</title>
 
-<!-- -->
-<body>
-    <section>
-        <!-- 센서 측정 목록 -->
-        <div class="sensor-data">
-            <div onclick="getChartData('temp')">
-                <!-- 온도 TEMPERATURE -->
-                <p class="pb">온도</p>
-                <span class="temp">24.5</span><span> °C</span>
-            </div>
-            
-            <div onclick="getChartData('humi')">
-                <!-- 습도 HUMIDITY -->
-                <p class="pb">습도</p>
-                <span class="humi">65</span><span> %</span>
-            </div>
-            
-            <div onclick="getChartData('open')">
-                <!-- 개폐량 OPENING/CLOSING AMOUNT -->
-                <p class="pb">개폐량</p>
-                <span class="open">80</span><span> %</span>
-            </div>
-            
-            <div onclick="getChartData('light')">
-                <!-- 일조량 SOLAR RADIATION -->
-                <p class="pb">일조량</p>
-                <span class="light">1,200</span><span> LX</span>
-            </div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/cmmn.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/section.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/css/chart.css">
+
+    <header>
+        <p>
+            <a href="index.html?user=j">
+                <span>🥬</span>
+                <span>SMART FARM</span>
+            </a>
+        </p>
+    </header>
+
+    <nav>
+        <!-- 프로필 사진 -->
+        <div class="profile-wrap">
+            <img class="profile-photo">
+            <p><span id="username"></span>님, 안녕하세요!</p>
         </div>
-        <!-- 센서 측정 목록 -->
 
-        <!-- 차트 -->
-        <figure class="sensor-chart">
-            <div id="container">
-                <div class="cell" id="dashboard-cell-0"></div>
-                <!--
-                <div class="cell" id="dashboard-cell-1"></div>
-                <div class="cell" id="dashboard-cell-2"></div>
-                <div class="cell" id="dashboard-cell-3"></div>
-                -->
-            </div>
-            <!--
-            <p class="highcharts-description">
-                This demo shows how related charts can be synchronized within the dashboard. Hover over one chart to see the
-                effect in the other charts as well.
-            </p>
-            -->
-        </figure>
+        <div class="line"></div>
 
-        <figure class="highcharts-figure">
-            <div id="container"></div>
-            <!--
-            <p class="highcharts-description">
-                A basic column chart comparing estimated corn and wheat production
-                in some countries.
+        <ul class="navbar-wrap">
+            <li class="main-plant"><img src="https://img.icons8.com/?size=20&id=88608&format=png"><span>PLANT LIST</span></li>
+            <!-- 작물 목록 동적 추가 -->
+        </ul>
+    </nav>
+
+    <!-- -->
+    <body>
+        <section>
+            <!-- 센서 측정 목록 -->
+            <div class="sensor-data">
+                <div onclick="getChartData('temp')">
+                    <!-- 온도 TEMPERATURE -->
+                    <p class="pb">온도</p>
+                    <span class="temp">24.5</span><span> °C</span>
+                </div>
                 
-                The chart is making use of the axis crosshair feature, to highlight
-                the hovered country.
-            </p>
-            -->
-        </figure>
-        <!-- 차트 -->
-    </section>
-</body>
-<!-- -->
+                <div onclick="getChartData('humi')">
+                    <!-- 습도 HUMIDITY -->
+                    <p class="pb">습도</p>
+                    <span class="humi">65</span><span> %</span>
+                </div>
+                
+                <div onclick="getChartData('open')">
+                    <!-- 개폐량 OPENING/CLOSING AMOUNT -->
+                    <p class="pb">개폐량</p>
+                    <span class="open">0</span><span> %</span>
+                </div>
+                
+                <div onclick="getChartData('light')">
+                    <!-- 일조량 SOLAR RADIATION -->
+                    <p class="pb">일조량</p>
+                    <span class="light">30</span><span> LX</span>
+                </div>
+            </div>
+            <!-- 센서 측정 목록 -->
 
-<!-- 공통 레이아웃 -->
-<footer></footer>
+            <!-- 차트 -->
+            <figure class="sensor-chart">
+                <div id="container">
+                    <div class="cell" id="dashboard-cell-0"></div>
+                    <!--
+                    <div class="cell" id="dashboard-cell-1"></div>
+                    <div class="cell" id="dashboard-cell-2"></div>
+                    <div class="cell" id="dashboard-cell-3"></div>
+                    -->
+                </div>
+                <!--
+                <p class="highcharts-description">
+                    This demo shows how related charts can be synchronized within the dashboard. Hover over one chart to see the
+                    effect in the other charts as well.
+                </p>
+                -->
+            </figure>
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+                <!--
+                <p class="highcharts-description">
+                    A basic column chart comparing estimated corn and wheat production
+                    in some countries.
+                    
+                    The chart is making use of the axis crosshair feature, to highlight
+                    the hovered country.
+                </p>
+                -->
+            </figure>
+            <!-- 차트 -->
+        </section>
+    </body>
+    <!-- -->
 
-<!-- 공통 레이아웃 외 초기화 스크립트 -->
-<script src="/js/cmmn.js"></script>
+    <footer>
+        <p>정성운 & 이주영 ⓒ 2025</p>
+    </footer>
 
-<!-- 차트 라이브러리 -->
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <!-- 라이브러리 -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<!-- 차트 데이터 처리 -->
-<script src="/js/chart.js"></script>
+    <!-- 기본 정보 세팅 -->
+    <script src="/js/cmmn.js"></script>
+
+    <!-- 차트 데이터 처리 -->
+    <script src="/js/chart.js"></script>
 </html>
