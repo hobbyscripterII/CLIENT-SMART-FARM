@@ -53,6 +53,7 @@ function getChartData(type) {
     const tickInterval = chartDataInfo.tickInterval;
     const datasetData = chartDataInfo.data;
 
+    // area-chart
     Dashboards.board('container', {
         dataPool: {
             connectors: [{
@@ -112,12 +113,7 @@ function getChartData(type) {
             type: 'category',
             categories: parseData.xData,
             crosshair: true,
-            labels: {
-                format: '{value}'
-            },
             accessibility: {
-                // description: 'Kilometers',
-                // rangeDescription: '0km to 6.5km'
             }
         },
         yAxis: {
@@ -127,7 +123,7 @@ function getChartData(type) {
             tickInterval: tickInterval
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.y}{series.userOptions.unit}</b>',
+            pointFormat: '{series.name}: <b>{point.y}</b>',
             valueSuffix: valueSuffix
         },
         plotOptions: {

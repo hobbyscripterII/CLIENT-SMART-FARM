@@ -33,13 +33,13 @@ nav ul li {
 }
 
 .sub-plant:hover {
-    background-color: #d6f6a4;
-    border-left: 7px solid #8ec96d;
+    background-color: #e6f5ff;
+    border-left: 7px solid #6da7f2;
 }
 
 .active {
-    background-color: #d6f6a4;
-    border-left: 7px solid #8ec96d;
+    background-color: #e6f5ff;
+    border-left: 7px solid #6da7f2;
 }
 
 /* 프로필 사진 */
