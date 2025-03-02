@@ -39,13 +39,14 @@ $(document).ready(() => {
     plantList.forEach((item) => {
         const plantName = item;
         const navbarWrap = $('.navbar-wrap');
-        const el = `<li class="sub-plant" onclick="getSensorData('${plantName}')">${plantName}</li>`;
+        const el = `<li class="sub-plant" onclick="chagePlant('${plantName}')">${plantName}</li>`;
 
         navbarWrap.append(el);
     });
 
-    const defaultPlant = plantList[0];
-    getSensorData(defaultPlant);
+    // 첫 화면에 보여줄 센서 데이터 및 차트
+    const defaultPlant = plantList[0]; // 첫번째 작물
+    chagePlant(defaultPlant);
 });
 
 function getUserDummyData(user) {

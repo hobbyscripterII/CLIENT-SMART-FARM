@@ -1,100 +1,5 @@
-// AJAX 로직 구현 전까지 사용할 더미 데이터
-const returnData = `
-                        {
-                            "xData": [
-                                "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
-                                "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00",
-                                "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"
-                            ],
-                            "datasets": [
-                                {
-                                    "name": "온도",
-                                    "data": [22.5, 22.0, 21.8, 21.5, 21.0, 20.5, 21.0, 22.5, 24.0, 25.5, 26.5, 27.0, 27.5, 27.2, 26.8, 26.0, 25.0, 24.5, 24.2, 24.0, 23.8, 23.5, 23.2, 24.5],
-                                    "unit": "°C",
-                                    "type": "line",
-                                    "valueDecimals": 1
-                                },
-                                {
-                                    "name": "습도",
-                                    "data": [70, 72, 74, 75, 76, 75, 73, 70, 68, 66, 65, 63, 62, 60, 59, 60, 62, 64, 66, 67, 68, 69, 70, 65],
-                                    "unit": "%",
-                                    "type": "area",
-                                    "valueDecimals": 0
-                                },
-                                {
-                                    "name": "개폐량",
-                                    "data": [0, 0, 0, 10, 20, 30, 20, 10, 5, 0, 0, 0, 0, 0, 10, 20, 30, 40, 50, 40, 30, 10, 0, 0],
-                                    "unit": "%",
-                                    "type": "area",
-                                    "valueDecimals": 0
-                                },
-                                {
-                                    "name": "일조량",
-                                    "data": [0, 0, 0, 0, 0, 0, 20, 50, 100, 200, 400, 600, 800, 900, 1000, 1000, 1000, 900, 800, 600, 400, 100, 30, 30],
-                                    "unit": "LX",
-                                    "type": "line",
-                                    "valueDecimals": 0
-                                }
-                            ]
-                        }
-                   `;
-
-const parseData = JSON.parse(returnData);
-
-function getSensorDataInfo(plant) {
-    let sensorData = {};
-
-    switch(plant) {
-        case '방울 토마토' :
-            sensorData = {
-                temp : '24.5',
-                humi : '65',
-                open : '10',
-                light : '30'
-            };
-            break;
-
-        case '고수' :
-            sensorData = {
-                temp : '27.5',
-                humi : '60',
-                open : '0',
-                light : '70'
-            };
-            break;
-
-        case '딸기' :
-            sensorData = {
-                temp : '10',
-                humi : '20',
-                open : '80',
-                light : '60'
-            };
-            break;
-
-        case '바질' :
-            sensorData = {
-                temp : '20',
-                humi : '10',
-                open : '50',
-                light : '10'
-            };
-            break;
-
-        default :
-            sensorData = {
-                temp : 0,
-                humi : 0,
-                open : 0,
-                light : 0
-            };
-            break;
-    }
-
-    return sensorData;
-}
-
-function getSensorData(plant) {
+function chagePlant(plant) {
+    // 센서 데이터 초기화
     const sensorDataEl = $('.sensor-data');
     sensorDataEl.html('');
 
@@ -114,6 +19,9 @@ function getSensorData(plant) {
 
         sensorDataEl.append(el);
     });
+
+    const defaultChartDataType = 'temp';
+    getChartData(defaultChartDataType);
 }
 
 function getChartData(type) {
@@ -229,6 +137,49 @@ function getChartData(type) {
     }, true);
 }
 
+// 더미 데이터
+const returnData = `
+                        {
+                            "xData": [
+                                "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
+                                "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00",
+                                "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"
+                            ],
+                            "datasets": [
+                                {
+                                    "name": "온도",
+                                    "data": [22.5, 22.0, 21.8, 21.5, 21.0, 20.5, 21.0, 22.5, 24.0, 25.5, 26.5, 27.0, 27.5, 27.2, 26.8, 26.0, 25.0, 24.5, 24.2, 24.0, 23.8, 23.5, 23.2, 24.5],
+                                    "unit": "°C",
+                                    "type": "line",
+                                    "valueDecimals": 1
+                                },
+                                {
+                                    "name": "습도",
+                                    "data": [70, 72, 74, 75, 76, 75, 73, 70, 68, 66, 65, 63, 62, 60, 59, 60, 62, 64, 66, 67, 68, 69, 70, 65],
+                                    "unit": "%",
+                                    "type": "area",
+                                    "valueDecimals": 0
+                                },
+                                {
+                                    "name": "개폐량",
+                                    "data": [0, 0, 0, 10, 20, 30, 20, 10, 5, 0, 0, 0, 0, 0, 10, 20, 30, 40, 50, 40, 30, 10, 0, 0],
+                                    "unit": "%",
+                                    "type": "area",
+                                    "valueDecimals": 0
+                                },
+                                {
+                                    "name": "일조량",
+                                    "data": [0, 0, 0, 0, 0, 0, 20, 50, 100, 200, 400, 600, 800, 900, 1000, 1000, 1000, 900, 800, 600, 400, 100, 30, 30],
+                                    "unit": "LX",
+                                    "type": "line",
+                                    "valueDecimals": 0
+                                }
+                            ]
+                        }
+                   `;
+
+const parseData = JSON.parse(returnData);
+
 function getChartDataInfo(type) {
     let chartInfoClass = {};
 
@@ -280,4 +231,57 @@ function getChartDataInfo(type) {
     }
 
     return chartInfoClass;
+}
+
+function getSensorDataInfo(plant) {
+    let sensorData = {};
+
+    switch(plant) {
+        case '방울 토마토' :
+            sensorData = {
+                temp : '24.5',
+                humi : '65',
+                open : '10',
+                light : '30'
+            };
+            break;
+
+        case '고수' :
+            sensorData = {
+                temp : '27.5',
+                humi : '60',
+                open : '0',
+                light : '70'
+            };
+            break;
+
+        case '딸기' :
+            sensorData = {
+                temp : '10',
+                humi : '20',
+                open : '80',
+                light : '60'
+            };
+            break;
+
+        case '바질' :
+            sensorData = {
+                temp : '20',
+                humi : '10',
+                open : '50',
+                light : '10'
+            };
+            break;
+
+        default :
+            sensorData = {
+                temp : 0,
+                humi : 0,
+                open : 0,
+                light : 0
+            };
+            break;
+    }
+
+    return sensorData;
 }

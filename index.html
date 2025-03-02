@@ -47,6 +47,20 @@
             <div class="sensor-data">
                 <!-- 센서 측정 목록 동적 추가 -->
             </div>
+        
+            <div class="search-date-wrap">
+                <span>센서 측정 기간</span>
+
+                <select id="search-date" onchange="chageSearchDate(this)">
+                    <option value="1hours">1시간</option>
+                    <option value="2hours">2시간</option>
+                    <option value="6hours">6시간</option>
+                    <option value="12hours">12시간</option>
+                    <option value="day">하루</option>
+                    <option value="month">한달</option>
+                    <option value="year">년도</option>
+                </select>
+            </div>
 
             <!-- 차트 -->
             <figure class="sensor-chart">
