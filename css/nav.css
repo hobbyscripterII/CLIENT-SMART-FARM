@@ -28,7 +28,18 @@ nav ul li {
 }
 
 .sub-plant {
-    padding-left: 25px;
+    padding: 15px 20px;
+    border-left: 7px solid transparent;
+}
+
+.sub-plant:hover {
+    background-color: #d6f6a4;
+    border-left: 7px solid #8ec96d;
+}
+
+.active {
+    background-color: #d6f6a4;
+    border-left: 7px solid #8ec96d;
 }
 
 /* 프로필 사진 */
