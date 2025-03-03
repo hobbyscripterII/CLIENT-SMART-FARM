@@ -46,6 +46,7 @@ $(document).ready(() => {
     const userName = userData.userName;
     const profileImg = userData.profileImg;
     const plantList = userData.plantList;
+    const role = userData.role;
 
     // 프로필 표출
     const profilePhotoEl = $('.profile-photo');
@@ -93,6 +94,13 @@ $(document).ready(() => {
     el += `<li class="sub-plant">작물 정보 수정</li>`;
     el += `<li class="sub-plant">작물 성장상태 조회</li>`;
 
+    if(role == 'ROOT' || role == 'MANAGER') {
+        // 지역 관리
+        el += `<li class="main-plant"><img src="https://img.icons8.com/?size=20&id=88608&format=png"><span>지역 관리</span></li>`;
+        el += `<li class="sub-plant"><a href="region.html">지역 조회</a></li>`;
+        /* el += `<li class="sub-plant">지역 수정</li>`; */
+    }
+
     navbarWrap.append(el);
 
     // 첫 화면에 보여줄 센서 데이터 및 차트
@@ -109,6 +117,7 @@ function getUserDummyData(user) {
                 userName : '정성운',
                 profileImg : '/img/img_profile_1.jpg',
                 plantList : ['방울 토마토', '고수'],
+                role : 'ROOT'
             };
             break;
             
@@ -117,6 +126,16 @@ function getUserDummyData(user) {
                 userName : '이주영',
                 profileImg : 'img/img_profile_2.jpg',
                 plantList : ['딸기', '바질'],
+                role : 'MANAGER'
+            };
+            break;
+
+        case 'g' :
+            userData = {
+                userName : '게스트',
+                profileImg : 'img/img_profile_2.jpg',
+                plantList : ['딸기', '바질'],
+                role : 'GUEST'
             };
             break;
     }
