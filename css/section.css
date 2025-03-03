@@ -8,7 +8,6 @@
 section {
     flex: 1;
     min-width: 0;
-    margin: 50px;
 }
 
 .sensor-data {
@@ -83,4 +82,30 @@ section {
     padding: 12px 14px;
     border: 1px solid #dbdbdb;
     border-radius: 5px;
+}
+
+/* 툴바 */
+#weather-wrap {
+    width: 100%;
+    height: 70px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dbdbdb;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* 현재 시간 */
+#time {
+    font-family: 'Freesentation-9Black';
+    font-size: 25px;
+}
+
+/* 실시간 날씨 조회 */
+#weather {
+    
+}
+
+#contents-wrap {
+    margin: 50px;
 }

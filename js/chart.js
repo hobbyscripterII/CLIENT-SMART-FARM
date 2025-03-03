@@ -22,21 +22,8 @@ function chagePlant(plant) {
         sensorDataEl.append(el);
     });
 
-    // nav 효과
-    const subPlantEl = $('.sub-plant');
-
-    subPlantEl.each((idx, el) => {
-        // 기존 active 효과 제거
-        $(el).removeClass('active');
-
-        // 사용자가 키우고 있는 작물명
-        const text = $(el).text();
-
-        // 사용자가 클릭한 작물명이랑 일치할 경우 active 클래스 추가
-        if(plant == text) {
-            $(el).addClass('active');
-        }
-    });
+    // 클릭 메뉴 강조 효과
+    changeNavActive(plant);
 
     const defaultChartDataType = 'temp';
     getChartData(defaultChartDataType);
@@ -145,6 +132,24 @@ function getChartData(type) {
             data : datasetData,
             unit : valueSuffix
         }]
+    });
+}
+
+function changeNavActive(plant) {
+    // nav 효과
+    const subPlantEl = $('.sub-plant');
+
+    subPlantEl.each((idx, el) => {
+        // 기존 active 효과 제거
+        $(el).removeClass('active');
+
+        // 사용자가 키우고 있는 작물명
+        const text = $(el).text();
+
+        // 사용자가 클릭한 작물명이랑 일치할 경우 active 클래스 추가
+        if(plant == text) {
+            $(el).addClass('active');
+        }
     });
 }
 

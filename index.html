@@ -35,36 +35,45 @@
         <div class="line"></div>
 
         <ul class="navbar-wrap">
-            <li class="main-plant"><img src="https://img.icons8.com/?size=20&id=88608&format=png"><span>PLANT LIST</span></li>
-            
             <!-- 작물 목록 -->
         </ul>
     </nav>
 
     <body>
         <section>
-            <div class="sensor-data">
-                <!-- 센서 측정 목록 -->
-            </div>
-        
-            <div class="search-date-wrap">
-                <span>센서 측정 기간</span>
+            <div id="weather-wrap">
+                <!-- 현재 시간 표출 -->
+                <p id="time"></p>
 
-                <select id="search-date" onchange="chageSearchDate(this)">
-                    <option value="1hours">1시간</option>
-                    <option value="2hours">2시간</option>
-                    <option value="6hours">6시간</option>
-                    <option value="12hours">12시간</option>
-                    <option value="day">하루</option>
-                    <option value="month">한달</option>
-                    <option value="year">년도</option>
-                </select>
-            </div>
-
-            <figure class="area-chart">
-                <div id="container">
+                <!-- 실시간 날씨 조회 -->
+                <div id="weather">
                 </div>
-            </figure>
+            </div>
+
+            <div id="contents-wrap">
+                <div class="sensor-data">
+                    <!-- 센서 측정 목록 -->
+                </div>
+            
+                <div class="search-date-wrap">
+                    <span>센서 측정 기간</span>
+    
+                    <select id="search-date" onchange="chageSearchDate(this)">
+                        <option value="1hours">1시간</option>
+                        <option value="2hours">2시간</option>
+                        <option value="6hours">6시간</option>
+                        <option value="12hours">12시간</option>
+                        <option value="day">하루</option>
+                        <option value="month">한달</option>
+                        <option value="year">년도</option>
+                    </select>
+                </div>
+    
+                <figure class="area-chart">
+                    <div id="container">
+                    </div>
+                </figure>
+            </div>
         </section>
     </body>
 
